@@ -2,11 +2,10 @@
 
 source /etc/profile
 
-cd /userdata1/server_script/
+cd /userdata1/server_script/logAnalytics-repo
 
-git pull https://github.com/jialechan/logAnalytics-repo
+git pull
 
-chmod +x ./jq
-chmod +x ./LogAnalytics.jar
+chmod +x LogAnalytics.jar jq LogAnalytics.sh log_daily.sh nginxConfig.sh
 
 /userdata1/software/jdk1.8/bin/java -jar ./LogAnalytics.jar --dateStr=`date -d yesterday +%Y-%m-%d`
