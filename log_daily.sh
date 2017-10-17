@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./nginxConfig.sh
+source $(cd `dirname $0`; pwd)/nginxConfig.sh
 
 for log in `ls $LOG_PATH`; do
     echo $log | grep '.log$' > /dev/null
@@ -15,4 +15,3 @@ done
 kill -USR1 `cat $PID_PATH`
 
 find $LOG_PATH -type f -mtime +3 -name "*access.log*" -exec rm {} \;
-
